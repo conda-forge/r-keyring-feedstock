@@ -1,4 +1,4 @@
-{% set version = '1.1.0' %}
+{% set version = "1.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,8 +13,8 @@ source:
   sha256: f87f21c23fbd93dc18af68bfa0a8a7fcc4eea6412f9794681a7190be2069eec2
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,16 +23,16 @@ requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}sed               # [win]
-    - {{posix}}grep              # [win]
-    - {{posix}}autoconf
-    - {{posix}}automake          # [not win]
-    - {{posix}}automake-wrapper  # [win]
-    - {{posix}}pkg-config
-    - {{posix}}make
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}sed               # [win]
+    - {{ posix }}grep              # [win]
+    - {{ posix }}autoconf
+    - {{ posix }}automake          # [not win]
+    - {{ posix }}automake-wrapper  # [win]
+    - {{ posix }}pkg-config
+    - {{ posix }}make
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - libsecret  # [linux]
     - r-base
@@ -46,7 +46,7 @@ requirements:
     - r-yaml
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - r-r6
     - r-assertthat
     - r-filelock
@@ -64,13 +64,13 @@ test:
 about:
   home: https://github.com/r-lib/keyring#readme
   license: MIT
-  summary: 'Platform independent ''API'' to access the operating system''s credential store.
-    Currently supports: ''Keychain'' on ''macOS'', Credential Store on ''Windows'',
-    the Secret Service ''API'' on ''Linux'', and a simple, platform independent store
-    implemented with environment variables. Additional storage back-ends can be added
-    easily.'
+  summary: "Platform independent 'API' to access the operating system's credential store. Currently supports: 'Keychain' on 'macOS', Credential Store on 'Windows', the Secret Service 'API' on 'Linux', and a simple, platform independent store implemented with environment variables. Additional storage back-ends can be added\
+    \ easily."
   license_family: MIT
 
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 extra:
   recipe-maintainers:
     - conda-forge/r
