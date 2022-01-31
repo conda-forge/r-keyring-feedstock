@@ -33,6 +33,7 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - libglib  # [linux]
   host:
     - libsecret  # [linux]
     - r-base
