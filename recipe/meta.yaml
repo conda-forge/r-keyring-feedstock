@@ -21,6 +21,15 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-openssl                  # [build_platform != target_platform]
+    - r-sodium                   # [build_platform != target_platform]
+    - r-assertthat               # [build_platform != target_platform]
+    - r-filelock                 # [build_platform != target_platform]
+    - r-getpass                  # [build_platform != target_platform]
+    - r-rappdirs                 # [build_platform != target_platform]
+    - r-yaml                     # [build_platform != target_platform]
+    - r-r6                       # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
