@@ -1,4 +1,4 @@
-{% set version = "1.3.2" %}
+{% set version = "1.4.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/keyring_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/keyring/keyring_{{ version }}.tar.gz
-  sha256: 86008c015cae1149c7b7bf98f66338536adaec3da660bad1a1a57be50f36fa56
+  sha256: 93f77fb8cc55cf06ab3f013c562d1ee9fd260ec8dd6508d99adc1c2790d735e8
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
